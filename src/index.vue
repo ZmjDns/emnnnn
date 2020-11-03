@@ -63,7 +63,7 @@ export default {
     },
     aboutNatApi () {
       navigator.push({
-        url: getUrlEntry('./pages/aboutNat/Media'),
+        url: getUrlEntry('./pages/aboutNat/Medai'),
         animated: 'true'
       })
     }

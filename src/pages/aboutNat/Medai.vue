@@ -16,6 +16,7 @@
 import { WxcButton } from 'weex-ui'
 import NaviHeader from '@/components/NaviHeader'
 import Nat from 'natjs'
+const modal = weex.requireModule('modal')
 
 export default {
     components: { NaviHeader, WxcButton, },
@@ -31,8 +32,19 @@ export default {
                 limit: 3,
                 showCamera: false
             }, (err, result) => {
-                console.log(result.paths)
-                that.info = JSON.stringify(result)
+                if(result){
+                    console.log(result.paths)
+                    that.info = JSON.stringify(result)
+                    modal.toast({
+                        message: 'success:' + JSON.stringify(result),
+                        duration: 3
+                    })
+                }else{
+                    modal.toast({
+                        message: 'error:' + JSON.stringify(err),
+                        duration: 3
+                    })
+                }
             })
         }
     }
